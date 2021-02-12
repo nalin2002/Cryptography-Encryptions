@@ -39,5 +39,7 @@ print(received_mssg)
 # Here to delegate access to bob alice needs to know the private key of bob which is not ideal.
 # to avoid that we can use different proxy-re-encryption algorithm i.e AFGH algo
 
-# But there’s a way to do it with the current algorithm. When Alice delegates access to Bob, she can generate an ephemeral key `sk_e` and produce a re-encryption key `rk_ae`. Then she encrypts `sk_e` with Bob’s public key `pk_b` yielding `e_b`.
-# The proxy will be given both `rk_e` and `e_b`. When Bob connects, the proxy will hand him `e_b`. Then Bob can extract `pk_e` out of it and use that to decrypt encrypted messages coming from the proxy.
+# But there’s a way to do it with the current algorithm. When Alice delegates access to Bob, she can generate an ephemeral key `sk_e` and produce a re-encryption key `rk_ae`.
+# Then she encrypts `sk_e` with Bob’s public key `pk_b` yielding `e_b`.
+# The proxy will be given both `rk_e` and `e_b`. When Bob connects, the proxy will hand him `e_b`.
+# Then Bob can extract `pk_e` out of it and use that to decrypt encrypted messages coming from the proxy.
