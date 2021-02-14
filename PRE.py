@@ -1,5 +1,4 @@
 # For this to run we need to install nucypher'-pre-python library
-
 from npre import bbs98
 pre=bbs98.PRE()
 
