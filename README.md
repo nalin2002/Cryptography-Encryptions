@@ -16,7 +16,7 @@ Papers:
 1) Identity Based Proxy Re-encryption: 
    https://link.springer.com/chapter/10.1007/978-3-540-72738-5_19
    Implementation: 
-   https://github.com/nikosft/IB-PRE
+   https://github.com/nikosft/IB-PRE || 
    https://github.com/nikosft/IB-PRE-APP
 
 2)
