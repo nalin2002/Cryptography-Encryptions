@@ -42,8 +42,8 @@ decrypt_mssg= f.decrypt(encrypt_mssg)
 
 key1=load_key()
 with open(file_name,'w') as f:
-    text="This is an implementation of proxy encryption which is a " \
-         "type of Asymmetric encryption.This is more safer than symmetric encryption"
+    text="This is an implementation symmetric encryption which is a " \
+         "type of cryptographic encryption"
     f.write(text)
 encrypt_file(file_name,key1)
 decrypt_file(file_name,key1)
