@@ -9,4 +9,5 @@ with open("trial1.jpg", "wb") as f:
     metadata, res = client.files_download(path="/Weather_report/test1.jpg")
     f.write(res.content)
 
+    
 print("{downloaded} file successfully downloaded")
