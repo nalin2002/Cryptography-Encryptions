@@ -21,6 +21,7 @@ os.rename(r'C:\Users\aprab\PycharmProjects\Python_Projects\trial1.data',r'C:\Use
 content=open("check.txt","r").read()
 sha256_encode1=hashlib.sha256(content.encode())
 
+
 if(sha256_encode.hexdigest() == sha256_encode1.hexdigest()):
     print("files are same")
 else:
