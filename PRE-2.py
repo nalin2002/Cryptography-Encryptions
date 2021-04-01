@@ -1,5 +1,6 @@
 from umbral import pre,keys,signing
 
+
 # Generate Umbral keys for Alice.
 alice_private_key = keys.UmbralPrivateKey.gen_key()
 alice_public_key = alice_private_key.get_pubkey()
