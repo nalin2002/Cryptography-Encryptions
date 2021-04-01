@@ -69,6 +69,7 @@ kfrags = pre.generate_kfrags(delegating_privkey=alice_private_key,
 
 capsule.set_correctness_keys(delegating=alice_public_key, receiving=bob_public_key, verifying=alice_verifying_key)
 
+
 cfrags = list()  # Bob's cfrag collection
 for kfrag in kfrags[:10]:
      cfrag = pre.reencrypt(kfrag=kfrag, capsule=capsule)
