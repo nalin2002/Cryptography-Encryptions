@@ -144,7 +144,7 @@ class PreGA:
             print(int2Bytes(m))
         return int2Bytes(m)
 
-ID = "Nalin Prabhath"
+ID1= "First User ID"
 ID2 = "Second User ID"
 
 input_file= open('Test_file_1.txt','r') # original input file
@@ -153,25 +153,33 @@ msg = input_file.read()
 group = PairingGroup('SS512', secparam=1024)
 pre = PreGA(group)
 (master_secret_key, params) = pre.setup()
-id_secret_key = pre.keyGen(master_secret_key, ID)
+
+id_secret_key = pre.keyGen(master_secret_key, ID1)
 id2_secret_key = pre.keyGen(master_secret_key, ID2)
-ciphertext = pre.encrypt(params, ID, msg) # Alice encrypted text
 
-Alice_encrypt_file= open("Alice_encrypt.txt",'w')
-Alice_encrypt_file.write(str(ciphertext)) # Alice encrypt file
-Upload_File_GD('Alice_encrypt.txt',str(ciphertext)) # uploading to cloud
+# Alice encrypted text
+ciphertext = pre.encrypt(params, ID1, msg)
 
-Download_File_GD('Alice_Decrypt.txt','1zrRuJQdje88pyF68wgSgvkXcMPJstP0W')
-decrypt_file= open('Alice_Decrypt.txt','r')
+# Alice_encrypt_file= open("Alice_encrypt.txt",'w')
+# Alice_encrypt_file.write(str(ciphertext)) # Alice encrypt file
+# Upload_File_GD('Alice_encrypt.txt',str(ciphertext)) # uploading to cloud
 
-pre.decryptFirstLevel(params,id_secret_key,ciphertext, ID)
-re_encryption_key = pre.rkGen(params,id_secret_key, ID, ID2)
-ciphertext2 = pre.reEncrypt(params, ID, re_encryption_key, ciphertext)
+# File-ID: 1EjeIuxVFbHWoxt7JbyN1ohlyTWh3nxHM
+# Download_File_GD('Alice_Decrypt.txt','1EjeIuxVFbHWoxt7JbyN1ohlyTWh3nxHM')
+# decrypt_file= open('Alice_Decrypt.txt','r')
 
-Bob_encrypt_file= open("Bob_encrypt.txt",'w')
-Bob_encrypt_file.write(str(ciphertext2)) # Alice encrypt file
-Upload_File_GD('Bob_encrypt.txt',str(ciphertext2)) # uploading to cloud
-Download_File_GD('Bob_Decrypt.txt','1XCmpkVc3jKfMXGXjaj_KSn2hCMJlyBgN')
+pre.decryptFirstLevel(params,id_secret_key,ciphertext, ID1)
+
+re_encryption_key = pre.rkGen(params,id_secret_key, ID1, ID2)
+
+ciphertext2 = pre.reEncrypt(params, ID1, re_encryption_key, ciphertext)
+
+# Bob_encrypt_file= open("Bob_encrypt.txt",'w')
+# Bob_encrypt_file.write(str(ciphertext2)) # Alice encrypt file
+# Upload_File_GD('Bob_encrypt.txt',str(ciphertext2)) # uploading to cloud
+
+# FIle-ID: 1TEQ9z9CgGvtoKYbIWVVgCdnNuQpdrXL2
+Download_File_GD('Bob_Decrypt.txt','1TEQ9z9CgGvtoKYbIWVVgCdnNuQpdrXL2')
 decrypt_file1= open('Bob_Decrypt.txt','r').read()
 
-pre.decryptSecondLevel(params,id2_secret_key,ID, ID2, ciphertext2)
+pre.decryptSecondLevel(params,id2_secret_key,ID1, ID2, ciphertext2)
