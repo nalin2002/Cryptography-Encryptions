@@ -1,7 +1,5 @@
 #-----------------Public Key Encryption--------------
 
-# RSA Cryptography
-# Ref: https://medium.com/@ashiqgiga07/asymmetric-cryptography-with-python-5eed86772731
 from Crypto.Cipher import PKCS1_OAEP
 from Crypto.PublicKey import RSA
 from binascii import hexlify
